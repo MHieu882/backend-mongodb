@@ -8,9 +8,7 @@
 
 - [Polulate](#populate)
 
-- [ORM >< Driver]()
-
-- [BSON](#bson)
+- [ORM >< Driver](#ormdriver)
 
 ## ModalLink
 
@@ -187,6 +185,7 @@ Create new Model with information at Schema.Can skip some value.
 ## Populate
 
 Population is the process of automatically replacing the specified paths in the document with document(s) from other collection(s)
+
 ```js
     Story.
   findOne({ title: 'Casino Royale' }).
@@ -225,7 +224,6 @@ What if we only want a few specific fields returned for the populated documents
 ```
 
 Only the last one will take effect when we want populate multiple paths at the same time
-
 
 ```js
     Story.
@@ -308,19 +306,38 @@ const Comment = mongoose.model('Comment', commentSchema);
 
 1. ORM : object relational mapping
 
-    is a programming technique for converting data between incompatible type systems using object-oriented programming languages.  
+    Programming technique for converting data between incompatible type systems using object-oriented programming languages.  
 
-    ![orm](../backend-mongodb/img/orm.png)
+    ![orm](./img/orm.png)
+    1. Active Record pattern :Eloquent, CachePHP, JOOQ, TOPLINK:
+        An approach to accessing data in a database. A database table or view is wrapped into a class. Thus, an object instance is tied to a single row in the table. After creation of an object, a new row is added to the table upon save. Any object loaded gets its information from the database. When an object is updated, the corresponding row in the table is also updated. The wrapper class implements accessor methods or properties for each column in the table or view.
+        ![active](./img/active.gif)
+    2. Data mapper pattern:
+
+        A Data Mapper is a Data Access Layer that performs bidirectional transfer of data between a persistent data store (often a relational database) and an in-memory data representation (the domain layer). The goal of the pattern is to keep the in-memory representation and the persistent data store independent of each other and the data mapper itself.
+        ![mapper](./img/mapper.gif)
+        - Bookshelf.js library
+        - TypeORM library
+        - Massive.js library
+        - Prisma
+        - Objection.js library
+        - MikroORM library
+    3. How does ORM work?
+
+    Encapsulate the database in one object. One part of the object will contain the data, and the other part takes care of how the data is handled and turns it into a relational database.
+    ![mapper](./img/realation%20database.png)
+
+    4. Advantages and disadvantages
+
+
 2. Driver: (ODM - Objec Data Model)
 
-    ![orm](../backend-mongodb/img/mongo.png)
-
-## BSON
+    ![orm](./img/mongo.png)
 
 ## Design Relationship
 
 ## Compair Mongodb >< SQL
 
- ![orm](../backend-mongodb/img/compari.png)
+ ![orm](./img/compari.png)
 
 ## Index ? Aggregation
