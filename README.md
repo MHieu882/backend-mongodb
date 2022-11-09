@@ -82,7 +82,7 @@ Create new Model with information at Schema.Can skip some value.
 
 - **${\color{orange}require}$**  : (boolean or function), if true adds a required validator  for this property
 - **${\color{orange}default}$** : sets a default value for the path. If the value is a function, the return value of the function is used as the default.
-- **${\color{orange}select}$**: boolean, specifies default projections for queries
+- **${\color{orange}select}$** : boolean, specifies default projections for queries
 - **${\color{orange}validate}$**: adds a validator function
 - **${\color{orange}get}$** :function, defines a custom getter for this property using Object.defineProperty().
 - **${\color{orange}set}$** : same get
