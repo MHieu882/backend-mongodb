@@ -61,5 +61,5 @@ async function populate2(Book) {
 }
 
 
-console.log(await populate1(Book));
+// console.log(await populate1(Book));
 console.log(await populate2(Book));
