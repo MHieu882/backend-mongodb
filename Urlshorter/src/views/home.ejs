@@ -19,11 +19,11 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/login/logout">Logout</a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#">
+          <li class="nav-item">
+            <a class="nav-link" href="/login/getchange">
               Change Password</a>
           </li>
-        </ul> -->
+        </ul>
     </div>
   </nav>
   <div class="container">
@@ -54,30 +54,10 @@
             <td><a><%= shortUrl.username %></a></td>
             <td><a><%= shortUrl.CreateAt %></a></td>
             <td>
-              <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Delete
-              </button>
-
-              <!-- Modal -->
-              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="staticBackdropLabel">Are you Sure?</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-footer">
                       <form action="/login/delete" method="POST">
                         <input type="hidden" id="_id" name="_id"class="form-control"  value="<%= shortUrl._id %>" />
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Delete</button>
                       </form>
-             
-                    </div>
-                  </div>
-                </div>
-              </div>
            </td>
         <% }) %>
       </tbody>

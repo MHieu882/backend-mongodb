@@ -1,8 +1,14 @@
 import mongoose, { Schema } from 'mongoose';
-import shortId from 'shortid';
 
 const UserSchema = new Schema({
-  username: String,
-  password: String,
+  username: { type: String,
+    required: true },
+  password: { type: String,
+    required: true },
+  active: { type: String,
+    default: 'active' },
+  role: { type: String, default: 'user' },
+  email: { type: String}
 });
+
 export default mongoose.model('User', UserSchema);

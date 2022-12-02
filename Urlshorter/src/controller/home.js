@@ -3,7 +3,7 @@ import ShortUrl from '../model/shortUrl.js';
 class ShortUrlController {
   async index(req, res) {
     if (!req.session.username) {
-      const shortUrls = await ShortUrl.find({ });
+      const shortUrls = await ShortUrl.find();
       res.render('index', { shortUrls });
     } const shortUrls = await ShortUrl.find({ username: req.session.username });
     res.render('home', { shortUrls });
