@@ -8,7 +8,7 @@ const UserSchema = new Schema({
   active: { type: String,
     default: 'active' },
   role: { type: String, default: 'user' },
-  email: { type: String}
+  email: String,
 });
 
 export default mongoose.model('User', UserSchema);

@@ -5,7 +5,8 @@ class ShortUrlController {
     if (!req.session.username) {
       const shortUrls = await ShortUrl.find();
       res.render('index', { shortUrls });
-    } const shortUrls = await ShortUrl.find({ username: req.session.username });
+    }
+    const shortUrls = await ShortUrl.find({ username: req.session.username });
     res.render('home', { shortUrls });
   }
 
@@ -23,9 +24,13 @@ class ShortUrlController {
 
   async getShorturl(req, res) {
     const shortUrl = await ShortUrl.findOne({ short: req.params.shortUrl });
-    if (shortUrl === null) return res.sendStatus(404);
-    shortUrl.clicks += 1;
-    shortUrl.save();
+    if (!shortUrl) {
+      return res.status(404).send({
+        errCode: -5,
+        message: 'The shorten url is not found',
+      });
+    }
+    await ShortUrl.updateOne({ _id: shortUrl._id }, { $inc: { clicks: 1 } });
     res.redirect(shortUrl.full);
   }
 }

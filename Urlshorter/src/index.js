@@ -3,15 +3,14 @@ import mongoose from 'mongoose';
 import session from 'express-session';
 import ConnectRedis from 'connect-redis';
 import routes from './routes/index.js';
-import clientRedis from './redis/db.js'
+import clientRedis from './redis/db.js';
 // connect mongodb
 mongoose.connect('mongodb://localhost:27017/urlShortener');
-
 
 // import routes fr
 const app = express();
 const port = process.env.PORT || 3000;
-//connect redis
+// connect redis
 
 const RedisStore = ConnectRedis(session);
 

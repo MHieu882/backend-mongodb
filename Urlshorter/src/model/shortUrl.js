@@ -13,10 +13,6 @@ const shorUrlSchema = new Schema({
     required: true,
     default: shortId.generate,
   },
-  clicks: {
-    type: Number,
-    required: true,
-    default: 0,
-  },
+  clicks: Number,
 });
 export default mongoose.model('ShortUrl', shorUrlSchema);

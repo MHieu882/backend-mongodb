@@ -1,6 +1,5 @@
 import express from 'express';
 import UserController from '../controller/user.js';
-import user from '../model/user.js';
 
 const router = express.Router();
 // user
@@ -16,4 +15,4 @@ router.get('/reset',UserController.getreset)
 router.get('/', UserController.index);
 
 export default router;
-//sess:pZyhQ0fDZ9iOLGXfAav4ytCkPDROpnCX
+
